@@ -14,6 +14,12 @@ const firebaseConfig = {
 // Initialize Firebase only if not already initialized
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
 const db = getFirestore(app);
-const auth = getAuth(app);
+let auth = null;
+
+try {
+  auth = getAuth(app);
+} catch (error) {
+  console.log("Firebase Auth disabled locally");
+}
 
 export { db, auth };
