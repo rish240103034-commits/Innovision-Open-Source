@@ -13,7 +13,9 @@ const firebaseConfig = {
 
 // Initialize Firebase only if not already initialized
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+
 const db = getFirestore(app);
+
 let auth = null;
 
 try {
